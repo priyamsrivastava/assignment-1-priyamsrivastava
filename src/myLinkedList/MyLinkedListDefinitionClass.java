@@ -2,7 +2,7 @@ package myLinkedList;
 
 import person.Person;
 
-public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
+public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
     private Node<E> head = null;
     private int size;
 
@@ -36,10 +36,6 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
         }
     }
 
-    @Override
-    public void add(E item) {
-        add(size, item);
-    }
 
     private E removeFirst() {
         E response = null;
@@ -87,8 +83,9 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
 
     @Override
     public void add(Object item) {
-
+        add(size, (E) item);
     }
+
 
     @Override
     public int search(Object item) {
@@ -99,20 +96,17 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
     public MyLinkedListDefinitionClass<E> sort(MyLinkedListDefinitionClass<E> list) {
         for (int i = 0; i < list.getSize(); i++) {
             for (int j = 1; j < list.getSize() - i; j++) {
-
                 Person firstNode = (Person) getNode(j - 1).getData();
                 Person secondNode = (Person) getNode(j).getData();
-                if (firstNode.getFirstName().compareToIgnoreCase(secondNode.getFirstName()) > 0) {
+                if (firstNode.getFirstName().compareToIgnoreCase(secondNode.getFirstName()) > 0)
                     list.swapAdjacentElements(getNode(j - 1), getNode(j), j - 2);
-                }
             }
         }
         return list;
     }
 
 
-    @Override
-    public void swapAdjacentElements(Node<Object> firstNode, Node<Object> secondNode, int indexOfNodeBeforeFirstNode) {
+    public void swapAdjacentElements(Node<E> firstNode, Node<E> secondNode, int indexOfNodeBeforeFirstNode) {
         if (head == firstNode) {
             head = secondNode;
             Node<E> reference = secondNode.getNext();

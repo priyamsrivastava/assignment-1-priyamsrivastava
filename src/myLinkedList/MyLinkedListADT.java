@@ -8,11 +8,7 @@ public interface MyLinkedListADT<E> {
 
     int search(E item);
 
-
     MyLinkedListDefinitionClass<E> sort(MyLinkedListDefinitionClass<E> list);
-
-
-    void swapAdjacentElements(Node<E> firstNode, Node<E> secondNode, int indexOfNodeBeforeFirstNode);
 
     void print();
 }
