@@ -1,6 +1,6 @@
 package myLinkedList;
 
-public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT {
+public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
     private Node<E> head = null;
     private int size;
 
@@ -13,23 +13,35 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT {
         return response;
     }
 
+    private void addFirst(E item) {
+        head = new Node<E>(item, head);
+        size++;
+    }
+
+    private void addAfter(Node<E> node, E item) {
+        node.setNext(new Node<E>(item, node.getNext()));
+        size++;
+    }
+
+
     @Override
-    public void add(java.lang.Object item) {
+    public void add(E item) {
 
     }
 
-    @Override
-    public java.lang.Object remove() {
-        return null;
-    }
 
     @Override
-    public int search(java.lang.Object item) {
+    public int search(E item) {
         return 0;
     }
 
     @Override
     public MyLinkedListDefinitionClass sort(MyLinkedListDefinitionClass list) {
+        return null;
+    }
+
+    @Override
+    public E remove() {
         return null;
     }
 
