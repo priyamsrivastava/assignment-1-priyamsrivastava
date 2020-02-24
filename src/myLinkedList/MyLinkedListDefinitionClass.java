@@ -1,6 +1,8 @@
 package myLinkedList;
 
 public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT {
+    private Node<E> head = null;
+    private int size;
 
     @Override
     public void add(java.lang.Object item) {
