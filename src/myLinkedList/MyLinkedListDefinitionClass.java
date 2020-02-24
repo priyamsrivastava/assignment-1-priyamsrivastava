@@ -1,5 +1,7 @@
 package myLinkedList;
 
+import person.Person;
+
 public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
     private Node<E> head = null;
     private int size;
@@ -83,14 +85,25 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
     }
 
     @Override
-    public int search(E item) {
+    public void add(Object item) {
+
+    }
+
+    @Override
+    public int search(Object item) {
         return 0;
+    }
+
+    @Override
+    public MyLinkedListDefinitionClass<Object> sort(MyLinkedListDefinitionClass<Object> list) {
+        return null;
     }
 
     @Override
     public MyLinkedListDefinitionClass<E> sort(MyLinkedListDefinitionClass<E> list) {
         for (int i = 0; i < list.getSize(); i++) {
             for (int j = 1; j < list.getSize() - i; j++) {
+
                 Person firstNode = (Person) getNode(j - 1).getData();
                 Person secondNode = (Person) getNode(j).getData();
                 if (firstNode.getFirstName().compareToIgnoreCase(secondNode.getFirstName()) > 0) {
@@ -103,7 +116,7 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
 
 
     @Override
-    public void swapAdjacentElements(Node<E> firstNode, Node<E> secondNode, int indexOfNodeBeforeFirstNode) {
+    public void swapAdjacentElements(Node<Object> firstNode, Node<Object> secondNode, int indexOfNodeBeforeFirstNode) {
         if (head == firstNode) {
             head = secondNode;
             Node<E> reference = secondNode.getNext();
