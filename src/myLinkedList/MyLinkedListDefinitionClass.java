@@ -25,8 +25,15 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
 
 
     @Override
-    public void add(E item) {
-
+    public void add(E data, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        } else if (index == 0) {
+            addFirst(data);
+        } else {
+            Node<E> temp = getNode(index - 1);
+            addAfter(temp, data);
+        }
     }
 
 
@@ -39,6 +46,7 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
     public MyLinkedListDefinitionClass sort(MyLinkedListDefinitionClass list) {
         return null;
     }
+
 
     @Override
     public E remove() {

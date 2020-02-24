@@ -1,9 +1,10 @@
 package myLinkedList;
 
 public interface MyLinkedListADT<E> {
-    void add(E item);
 
     E remove();
+
+    void add(E data, int index);
 
     int search(E item);
 
