@@ -38,6 +38,38 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
 
 
     @Override
+    public E remove() {
+        return null;
+    }
+
+
+    private E removeFirst() {
+        E response = null;
+
+        Node<E> temp = head;
+        if (head != null) {
+            head = head.getNext();
+        }
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
+    private E removeAfter(Node<E> node) {
+        E response = null;
+        Node<E> temp = node.getNext();
+
+        if (temp != null) {
+            node.setNext(temp.getNext());
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
+    @Override
     public int search(E item) {
         return 0;
     }
@@ -47,11 +79,6 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<E> {
         return null;
     }
 
-
-    @Override
-    public E remove() {
-        return null;
-    }
 
     @Override
     public void print() {
