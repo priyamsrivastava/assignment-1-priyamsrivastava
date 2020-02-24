@@ -4,7 +4,7 @@ public interface MyLinkedListADT<E> {
 
     E remove();
 
-    void add(E data, int index);
+    void add(E item);
 
     int search(E item);
 
