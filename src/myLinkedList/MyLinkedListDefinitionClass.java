@@ -36,6 +36,7 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
         }
     }
 
+    @Override
     public void add(E item) {
         add(size, item);
     }
@@ -95,11 +96,6 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
     }
 
     @Override
-    public MyLinkedListDefinitionClass<Object> sort(MyLinkedListDefinitionClass<Object> list) {
-        return null;
-    }
-
-    @Override
     public MyLinkedListDefinitionClass<E> sort(MyLinkedListDefinitionClass<E> list) {
         for (int i = 0; i < list.getSize(); i++) {
             for (int j = 1; j < list.getSize() - i; j++) {
@@ -149,5 +145,4 @@ public class MyLinkedListDefinitionClass<E> implements MyLinkedListADT<Object> {
     public int getSize() {
         return size;
     }
-}
 }
